@@ -11,14 +11,8 @@ export default class App extends Component {
     super(props)
 
     this.state = {
-      posts: [],
+      posts: postList,
     }
-  }
-
-  componentDidMount(){
-    client.getEntries({'content_type': 'portfolioProject'}).then(function(response){
-      this.state.setState(response => {return {posts: response}})
-    })
   }
 
   render() {

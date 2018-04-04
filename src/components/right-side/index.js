@@ -8,7 +8,7 @@ export default class RightSide extends Component{
         {this.props.posts.map((post)=>{
           return(
             <div>
-              <h2>{post.fields.title}</h2>
+              <h2>{post.title}</h2>
             </div>
           );
         })}
