@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 6px;
+  margin: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.box:hover {
+  box-shadow: 0 0 20px 1px rgba(0, 140, 186, 0.5);
+  opacity: 0.75;
+}
+
+.box:hover .middle {
+  opacity: 1;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0.75;
+  position: relative;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: red;
+}
+
+.middle p {
+  text-align: left;
+  margin-left: 6%;
+  color: white;
+  text-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+}
