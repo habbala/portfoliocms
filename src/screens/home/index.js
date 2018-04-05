@@ -3,7 +3,6 @@ import Wrapper from '../../components/wrapper'
 import Header from '../../components/header'
 import Left from '../../components/left-side'
 import Right from '../../components/right-side'
-import postList from '../../mock/posts.js'
 
 const contentful = require('contentful')
 
@@ -19,31 +18,46 @@ export default class App extends Component {
     super(props)
 
     this.state = {
-      posts: [],
+      posts: null,
     }
+
+    console.log(this.state.posts);
   }
 
   componentDidMount(){
-    client.getEntries()
+    this.setPostList()
+  }
+
+  setPostList(){
+    client.getEntries({'content_type' : 'portfolioProject'})
       .then((response) => {
         this.setState({
           posts: response.items
         })
-        console.log(this.state.posts)
       })
       .catch(function(error){
-        console.log(error);
+        console.log('error' + error);
     });
   }
 
   render() {
 
-    return (
+    const postViews = this.state.posts != null ? (
       <Wrapper>
         <Header/>
-        <Left post = {this.state.posts[0]}/>
+        <Left posts = {this.state.posts}/>
         <Right posts = {this.state.posts}/>
       </Wrapper>
-    );
+    ) : (
+      <Wrapper>
+        <Header/>
+      </Wrapper>
+    )
+
+    return(
+      <div>
+        {postViews}
+      </div>
+    )
   }
 }

@@ -7,7 +7,7 @@ export default class LeftSide extends Component{
   render(){
     return(
       <div className="left-container">
-        <Post post={this.props.post}/>
+        <Post post={this.props.posts[0]}/>
       </div>
     )
   }

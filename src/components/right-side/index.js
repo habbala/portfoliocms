@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import './index.css';
+import ListItem from '../list-item'
 
 export default class RightSide extends Component{
+
+  postList(){
+    return(
+      this.props.posts.map((post)=>{
+        return(<ListItem post = {post}/>)
+      })
+    )
+  }
+
   render(){
     return(
-      <div className="right-container">
-        {this.props.posts.map((post)=>{
-          return(
-            <div>
-              <h2>{post.title}</h2>
-            </div>
-          );
-        })}
+      <div>
+        {this.postList()}
       </div>
     )
   }
