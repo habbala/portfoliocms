@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   color: #333;
+  overflow: scroll;
 }
 
 .right-container-row{
