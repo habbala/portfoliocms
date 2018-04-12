@@ -6,15 +6,15 @@ export default class RightSide extends Component{
 
   postList(){
     return(
-      this.props.posts.map((post)=>{
-        return(<ListItem post = {post}/>)
+      this.props.posts.map((post) => {
+        return(<ListItem post = {post}/>);
       })
     )
   }
 
   render(){
     return(
-      <div>
+      <div className = "right-container" >
         {this.postList()}
       </div>
     )

@@ -4,7 +4,7 @@ import Header from '../../components/header';
 import Left from '../../components/left-side';
 import Right from '../../components/right-side';
 import {connect} from 'react-redux';
-import {setPosts} from '../../actions';
+import {setPosts, setPost} from '../../actions';
 
 const contentful = require('contentful');
 
@@ -17,12 +17,14 @@ const client = contentful.createClient({
 const mapStateToProps = state => {
   return {
     posts: state.posts,
+    post: state.post,
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    setPosts: posts => dispatch(setPosts(posts))
+    setPosts: posts => dispatch(setPosts(posts)),
+    setPost: post => dispatch(setPost(post))
   };
 };
 
@@ -36,8 +38,7 @@ class HomeScreen extends Component {
     client.getEntries({'content_type' : 'portfolioProject'})
       .then((response) => {
         this.props.setPosts(response.items);
-        console.log('setpostlist1'+response.items);
-        console.log('setpostlist2'+this.props.posts);
+        this.props.setPost(response.items[0]);
       })
       .catch(function(error){
         console.log('error' + error);
@@ -45,12 +46,12 @@ class HomeScreen extends Component {
   };
 
   render(){
-    console.log('render' + this.props);
-    const postViews = this.props.length > 0 ? (
+
+    const postViews = this.props.posts.length > 0 ? (
       <Wrapper>
         <Header/>
-        <Left posts = {this.state.posts}/>
-        <Right posts = {this.state.posts}/>
+        <Left/>
+        <Right posts = {this.props.posts}/>
       </Wrapper>
     ) : (
       <Wrapper>

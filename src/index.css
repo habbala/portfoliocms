@@ -2,6 +2,22 @@ body {
   margin: 0;
 }
 
+body p {
+  font-size: 1em;
+}
+
+body h1{
+  font-size: 2em;
+}
+
+body h2{
+  font-size: 1.5em;
+}
+
+body h3{
+  font-size: 1.2em;
+}
+
 .box {
   background-color: #444;
   color: #fff;

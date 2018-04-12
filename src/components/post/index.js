@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './index.css';
+import {setPost} from '../../actions';
 
-export default class Post extends Component{
+const mapStateToProps = state => {
+  return {
+    post: state.post,
+  };
+}
+
+class Post extends Component{
 
   render(){
-
-    return(
-      <div>
-        <h2>{this.props.post.fields.title}</h2>
-        <img src = {this.props.post.fields.featuredImage}/>
-        <p>{this.props.post.fields.description}</p>
-      </div>
-    )
+    if(this.props.post != ""){
+      return(
+        <div>
+          <h2>{this.props.post.fields.title}</h2>
+          <img src = {this.props.post.fields.featuredImage.fields.file.url}/>
+          <p>{this.props.post.fields.description}</p>
+        </div>
+      );
+    } else {
+      return(
+        <div>empty</div>
+      );
+    }
   }
 }
+
+const connectedPost = connect(mapStateToProps, null)(Post);
+export default connectedPost;
