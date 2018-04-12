@@ -50,6 +50,10 @@ class Item extends Component{
         this.setState({backgroundColor: "rgba(5, 217, 77, 0.5)"});
         break;
 
+      case "App":
+        this.setState({backgroundColor: "rgba(249, 246, 31, 0.5)"});
+        break;
+
       default:
         this.setState({backgroundColor: "rgba(1, 1, 1, 0.5)"});
         break;
@@ -64,8 +68,11 @@ class Item extends Component{
   render(){
     return(
       <div className = "list-item" style={{background: this.state.backgroundColor}} onClick = {this.eventHandler}>
-        <h3>{this.state.post.fields.title}</h3>
-        <img src = {this.state.post.fields.featuredImage.fields.file.url}/>
+        <div className = "overlay">
+          <img src = {this.state.post.fields.featuredImage.fields.file.url}/>
+          <p>{this.state.post.fields.category}</p>
+          <h3>{this.state.post.fields.title}</h3>
+        </div>
       </div>
     )
   }

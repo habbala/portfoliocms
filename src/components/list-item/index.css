@@ -1,7 +1,28 @@
 .list-item{
   width: 100%;
+  align-items: center;
+  border-style: solid;
+  border-bottom: 1px;
+  border-left: 0px;
 }
 
 .list-item img{
   width: 50%;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.list-item p{
+  margin-bottom: -1.5em;
+}
+
+.overlay{
+  background-color: rgba(0,0,0,0);
+  padding-left: 1em;
+  padding-top: 1em;
+  height: 100%;
+}
+
+.overlay:hover{
+  background-color: rgba(0,0,0,0.1);
 }
