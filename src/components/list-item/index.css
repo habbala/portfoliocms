@@ -3,13 +3,18 @@
   align-items: center;
   border-style: solid;
   border-bottom: 1px;
-  border-left: 0px;
+  border-color: #333;
+}
+
+.list-item h3, p, img{
+  margin-left: 1em;
 }
 
 .list-item img{
   width: 50%;
   max-height: 200px;
   object-fit: cover;
+  margin-top: 1em;
 }
 
 .list-item p{
@@ -18,8 +23,6 @@
 
 .overlay{
   background-color: rgba(0,0,0,0);
-  padding-left: 1em;
-  padding-top: 1em;
   height: 100%;
 }
 

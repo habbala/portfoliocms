@@ -15,7 +15,7 @@ export default class RightSide extends Component{
   render(){
     return(
       <div className = "right-container" >
-        {this.postList()}
+          {this.postList()}
       </div>
     )
   }
