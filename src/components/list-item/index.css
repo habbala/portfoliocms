@@ -3,7 +3,11 @@
   align-items: center;
   border-style: solid;
   border-bottom: 1px;
-  border-color: #333;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.list-item:hover{
+  border-left-color: rgba(0,0,0,0);
 }
 
 .list-item h3, p, img{
@@ -27,5 +31,5 @@
 }
 
 .overlay:hover{
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(255,255,255,0.03);
 }

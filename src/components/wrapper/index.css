@@ -1,7 +1,7 @@
 .wrapper{
   display: grid;
   grid-template-columns: 65% 35%;
-  grid-template-rows: 10% 90%;
+  grid-template-rows: 8% 92%;
   font-family: 'Slabo 27px', serif;
   height: 100vh;
   background-image: url('../../images/background.jpg');

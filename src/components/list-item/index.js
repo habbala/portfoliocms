@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import {connect} from 'react-redux';
 import {setPost, setBackground} from '../../actions';
+import Image from 'react-ideal-image';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -15,8 +16,6 @@ const mapStateToProps = state => {
     selectedPost: state.post,
   };
 }
-
-const randomColor = require('randomcolor');
 
 class Item extends Component{
 
@@ -65,11 +64,13 @@ class Item extends Component{
     this.props.setBackground(this.state.backgroundColor);
   }
 
+
   render(){
+
     return(
       <div className = "list-item" style={{background: this.state.backgroundColor}} onClick = {this.eventHandler}>
         <div className = "overlay">
-          <img src = {this.state.post.fields.featuredImage.fields.file.url}/>
+        <img src = {this.state.post.fields.featuredImage.fields.file.url}/>
           <p>{this.state.post.fields.category}</p>
           <h3>{this.state.post.fields.title}</h3>
         </div>

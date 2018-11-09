@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './index.css';
+import Wobble from 'react-reveal/Wobble';
 
 export default class Header extends Component{
   render(){
     return(
       <div className="header-container">
-        <h1>Jesper Blomqvist</h1>
+        <Wobble>
+          <h1>JESPER BLOMQVIST</h1>
+        </Wobble>
       </div>
     )
   }

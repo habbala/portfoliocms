@@ -20,11 +20,15 @@
 }
 
 #games{
-  background: rgba(34, 138, 225, 0.5);
+  background: rgba(89, 152, 197, 0.5);
 }
 
 #about{
-  background: rgba(240, 240, 18, 0.5);
+  background: rgba(44, 165, 141, 0.5);
+}
+
+#app{
+  background: rgba(252, 255, 75, 0.5);
 }
 
 .list-header{
