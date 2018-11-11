@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './index.css';
 import {connect} from 'react-redux';
 import {setPost, setBackground} from '../../actions';
-import Image from 'react-ideal-image';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -25,6 +24,7 @@ class Item extends Component{
     this.state = {
       post: props.post,
       backgroundColor: '',
+      color: '#403F4C',
     }
 
     this.eventHandler = this.eventHandler.bind(this);
@@ -34,27 +34,27 @@ class Item extends Component{
     switch(this.props.post.fields.category){
 
       case "Web":
-        this.setState({backgroundColor: "rgba(255, 114, 109, 1)"});
+        this.setState({backgroundColor: "rgba(255, 114, 109, 0.8)"});
         break;
 
       case "Games":
-        this.setState({backgroundColor: "rgba(82, 166, 211, 1)"});
+        this.setState({backgroundColor: "rgba(82, 166, 211, 0.8)"});
         break;
 
       case "About":
-        this.setState({backgroundColor: "rgba(64, 63, 76, 1)"});
+        this.setState({backgroundColor: "rgba(64, 63, 76, 0.8)", color: "#52A6D3"});
         break;
 
       case "Photo":
-        this.setState({backgroundColor: "rgba(164, 201, 159, 1)"});
+        this.setState({backgroundColor: "rgba(164, 201, 159, 0.8)"});
         break;
 
       case "App":
-        this.setState({backgroundColor: "rgba(247, 240, 165, 1)"});
+        this.setState({backgroundColor: "rgba(247, 240, 165, 0.8)"});
         break;
 
       default:
-        this.setState({backgroundColor: "rgba(1, 1, 1, 0.5)"});
+        this.setState({backgroundColor: "rgba(1, 1, 1, 0.8)"});
         break;
     }
   }
@@ -70,9 +70,9 @@ class Item extends Component{
     return(
       <div className = "list-item" style={{background: this.state.backgroundColor}} onClick = {this.eventHandler}>
         <div className = "overlay">
-        <img src = {this.state.post.fields.featuredImage.fields.file.url}/>
-          <p>{this.state.post.fields.category}</p>
-          <h3>{this.state.post.fields.title}</h3>
+        <img src = {this.state.post.fields.featuredImage.fields.file.url} alt=""/>
+          <p style={{color: this.state.color}}>{this.state.post.fields.category}</p>
+          <h3 style={{color: this.state.color}}>{this.state.post.fields.title}</h3>
         </div>
       </div>
     )

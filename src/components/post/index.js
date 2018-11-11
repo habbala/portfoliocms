@@ -12,11 +12,11 @@ const mapStateToProps = state => {
 class Post extends Component{
 
   render(){
-    if(this.props.post != ""){
+    if(this.props.post !== ""){
       return(
         <div>
           <h2>{this.props.post.fields.title}</h2>
-          <img className = "post-img" src = {this.props.post.fields.featuredImage.fields.file.url}/>
+          <img className = "post-img" src = {this.props.post.fields.featuredImage.fields.file.url} alt=""/>
           <p>{this.props.post.fields.description}</p>
         </div>
       );
