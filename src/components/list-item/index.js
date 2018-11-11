@@ -34,23 +34,23 @@ class Item extends Component{
     switch(this.props.post.fields.category){
 
       case "Web":
-        this.setState({backgroundColor: "rgba(248, 6, 6, 0.5)"});
+        this.setState({backgroundColor: "rgba(255, 114, 109, 1)"});
         break;
 
       case "Games":
-        this.setState({backgroundColor: "rgba(34, 138, 225, 0.5)"});
+        this.setState({backgroundColor: "rgba(82, 166, 211, 1)"});
         break;
 
       case "About":
-        this.setState({backgroundColor: "rgba(240, 240, 18, 0.5)"});
+        this.setState({backgroundColor: "rgba(64, 63, 76, 1)"});
         break;
 
       case "Photo":
-        this.setState({backgroundColor: "rgba(5, 217, 77, 0.5)"});
+        this.setState({backgroundColor: "rgba(164, 201, 159, 1)"});
         break;
 
       case "App":
-        this.setState({backgroundColor: "rgba(249, 246, 31, 0.5)"});
+        this.setState({backgroundColor: "rgba(247, 240, 165, 1)"});
         break;
 
       default:
