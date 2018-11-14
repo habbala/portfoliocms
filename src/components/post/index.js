@@ -17,6 +17,9 @@ class Post extends Component{
         <div>
           <h2>{this.props.post.fields.title}</h2>
           <img className = "post-img" src = {this.props.post.fields.featuredImage.fields.file.url} alt=""/>
+          {/*
+            slideshow
+          */}
           <p>{this.props.post.fields.description}</p>
         </div>
       );

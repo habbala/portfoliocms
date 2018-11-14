@@ -7,7 +7,7 @@ export default class Header extends Component{
     return(
       <div className="header-container">
         <Wobble>
-          <h1>JESPER BLOMQVIST</h1>
+          <h1>JESPER BLOMQVIST PORTFOLIO (UNDER CONSTRUCTION)</h1>
         </Wobble>
       </div>
     )
