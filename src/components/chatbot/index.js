@@ -26,13 +26,12 @@ class MyChatbot extends Component{
         this.setState(
             {senderEmail: values[values.length-3], message: values[values.length-2]},
             () => {
-                alert(this.state.senderEmail + this.state.message);
                 var senderEmail = this.state.senderEmail;
                 var message = this.state.message;
         
                 emailjs.send('mailjet', 'chatbot', {senderEmail, message})
                 .then(res => {
-                    alert('SUCCESS!', res.status, res.text);
+                    console.log('SUCCESS!', res.status, res.text);
                 })
                 .catch(err => console.error('Failed to send message. Error: ', err)) 
             }
@@ -41,12 +40,12 @@ class MyChatbot extends Component{
 
     render(){        
         return(
-            <ChatBot floating={true} headerTitle={"BlomqvistBot"} botDelay={100} handleEnd={this.handleEnd} botAvatar={avatar}
+            <ChatBot floating={true} headerTitle={"BlomBot"} botDelay={100} handleEnd={this.handleEnd} botAvatar={avatar}
                 steps={[
-                    /*
+                    
                     {
                         id: '1',
-                        message: 'Hi, I am Jespers very own chatbot! Who are you?',
+                        message: 'Hi, I am Jespers very own chatbot, BlomBot! What is your name?',
                         trigger: '2',
                     },
                     {
@@ -56,15 +55,21 @@ class MyChatbot extends Component{
                     },
                     {
                         id: '3',
-                        message: 'Hi {previousValue}, nice to meet you!',
-                        trigger: '4',
+                        message: 'Hi {previousValue}, nice to meet you! What may I help you with today?',
+                        trigger: '31',
                     },
-                */
+                    {
+                        id: '31',
+                        options: [
+                            { value: 1, label: 'Where do you live?', trigger: 'location' },
+                            { value: 2, label: 'What do you do?', trigger: 'occupation' },
+                            { value: 3, label: 'I would like to send a message to Jesper.', trigger: 'sendMessage' },
+                        ],
+                    }, 
 
-                
                     {
                         id: '4',
-                        message: 'What may I help you with?',
+                        message: 'What may I help you with today?',
                         trigger: 'hubQuestions',
                     },
                     {
@@ -123,10 +128,10 @@ class MyChatbot extends Component{
                     {
                         id: 'sendMessageSent',
                         message: 'Thank you! Your message has been sent!',
-                        trigger: 'chatlogQuestion'
+                        trigger: 'chatEnd'
                     },
 
-
+                    /*
                     {
                         id: 'chatlogQuestion',
                         message: 'Would you like a transcript of our conversation sent to you?',
@@ -143,7 +148,7 @@ class MyChatbot extends Component{
                         id: 'chatlogYes',
                         message: 'The transcript has been sent',
                         trigger: 'chatEnd',
-                    },
+                    },*/
 
                     {
                         id: 'chatEnd',

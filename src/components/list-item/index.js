@@ -24,7 +24,6 @@ class Item extends Component{
     this.state = {
       post: props.post,
       backgroundColor: '',
-      color: '#403F4C',
     }
 
     this.eventHandler = this.eventHandler.bind(this);
@@ -34,27 +33,27 @@ class Item extends Component{
     switch(this.props.post.fields.category){
 
       case "Web":
-        this.setState({backgroundColor: "rgba(255, 114, 109, 0.8)"});
+        this.setState({backgroundColor: "rgba(255, 114, 109, 0.65)"});
         break;
 
       case "Games":
-        this.setState({backgroundColor: "rgba(82, 166, 211, 0.8)"});
+        this.setState({backgroundColor: "rgba(82, 166, 211, 0.65)"});
         break;
 
       case "About":
-        this.setState({backgroundColor: "rgba(64, 63, 76, 0.8)", color: "#52A6D3"});
+        this.setState({backgroundColor: "rgba(64, 63, 76, 0.65)", color: "#52A6D3"});
         break;
 
       case "Photo":
-        this.setState({backgroundColor: "rgba(164, 201, 159, 0.8)"});
+        this.setState({backgroundColor: "rgba(164, 201, 159, 0.65)"});
         break;
 
       case "App":
-        this.setState({backgroundColor: "rgba(247, 240, 165, 0.8)"});
+        this.setState({backgroundColor: "rgba(247, 240, 165, 0.65)"});
         break;
 
       default:
-        this.setState({backgroundColor: "rgba(1, 1, 1, 0.8)"});
+        this.setState({backgroundColor: "rgba(1, 1, 1, 0.65)"});
         break;
     }
   }
@@ -64,16 +63,38 @@ class Item extends Component{
     this.props.setBackground(this.state.backgroundColor);
   }
 
+//  <div className = "list-item" style={{backgroundImage: "url("+this.state.post.fields.featuredImage.fields.file.url+")"}}/>
+
 
   render(){
+    let imageStyle={
+      opacity: 1,
+      borderColor: '#fff',
+      borderWidth: '100px',
+      backgroundImage: "url("+this.state.post.fields.featuredImage.fields.file.url+")",
+      backgroundSize: '50%',
+      backgroundPosition: 'right',
+      backgroundRepeat: 'no-repeat',
+      transition: '1s',
+    }
+
+    let colorStyle={
+      opacity: 1,
+      backgroundColor: this.state.backgroundColor,
+      transition: '1s',
+      height: '100%',
+      position: 'relative',
+      top: '0%',
+      overflow: 'hidden',
+      paddingLeft: '5%',
+    }
 
     return(
-      <div className = "list-item" style={{background: this.state.backgroundColor}} onClick = {this.eventHandler}>
-        <div className = "overlay">
-        <img src = {this.state.post.fields.featuredImage.fields.file.url} alt=""/>
-          <p style={{color: this.state.color}}>{this.state.post.fields.category}</p>
-          <h3 style={{color: this.state.color}}>{this.state.post.fields.title}</h3>
-        </div>
+        <div className = "list-item-image" style = {imageStyle}  onClick = {this.eventHandler}>
+          <div className = "list-item-color" style={colorStyle}>
+            <p>{this.state.post.fields.category}</p>
+            <h3>{this.state.post.fields.title}</h3>
+          </div>
       </div>
     )
   }

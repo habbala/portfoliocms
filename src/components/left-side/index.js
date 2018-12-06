@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
 import Post from '../post'
-import {setPost} from '../../actions';
 import {connect} from 'react-redux';
 import MyChatbot from '../chatbot';
 

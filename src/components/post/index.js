@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './index.css';
-import {setPost} from '../../actions';
 
 const mapStateToProps = state => {
   return {
@@ -11,23 +10,51 @@ const mapStateToProps = state => {
 
 class Post extends Component{
 
+  constructor(props) {
+		super(props);
+    this.state = {
+        imgIndex: 0,
+        images: ['',],
+    };
+
+    this.nextImage = this.nextImage.bind(this);
+  }
+
+  nextImage(){
+    if(this.state.imgIndex === this.props.post.fields.images.length-1){
+      this.setState({
+        imgIndex: 0
+      });
+    } else {
+      this.setState({
+        imgIndex: 1
+      });
+    }
+  }
+
   render(){
     if(this.props.post !== ""){
-      return(
-        <div>
-          <h2>{this.props.post.fields.title}</h2>
-          <img className = "post-img" src = {this.props.post.fields.featuredImage.fields.file.url} alt=""/>
-          {/*
-            slideshow
-          */}
-          <p>{this.props.post.fields.description}</p>
-        </div>
-      );
-    } else {
-      return(
-        <div>empty</div>
-      );
+      if(this.props.post !== this.state.post){
+
+        return(
+          <div>
+            <h2>{this.props.post.fields.title}</h2>
+
+            {this.props.post.fields.images.map((image) => {
+              return(
+                <img className='post-img' src = {image.fields.file.url} alt=""/>
+              );
+            })}
+  
+            <p>{this.props.post.fields.description}</p>
+          </div>
+        );
+      }
     }
+
+    return(
+      <div>empty</div>
+    );
   }
 }
 
