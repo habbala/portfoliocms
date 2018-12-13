@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import {connect} from 'react-redux';
 import {setPost, setBackground} from '../../actions';
+import {CATEGORY_COLORS} from '../../constants/colors'
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -24,37 +25,39 @@ class Item extends Component{
     this.state = {
       post: props.post,
       backgroundColor: '',
+      colors: CATEGORY_COLORS,
     }
 
     this.eventHandler = this.eventHandler.bind(this);
   }
 
   componentDidMount(){
+
     switch(this.props.post.fields.category){
 
       case "Web":
-        this.setState({backgroundColor: "rgba(255, 114, 109, 0.65)"});
+        this.setState({backgroundColor: `rgba(${CATEGORY_COLORS.WEB}, 0.65)`});
         break;
 
       case "Games":
-        this.setState({backgroundColor: "rgba(82, 166, 211, 0.65)"});
-        break;
+      this.setState({backgroundColor: `rgba(${CATEGORY_COLORS.GAMES}, 0.65)`});
+      break;
 
       case "About":
-        this.setState({backgroundColor: "rgba(64, 63, 76, 0.65)", color: "#52A6D3"});
-        break;
+      this.setState({backgroundColor: `rgba(${CATEGORY_COLORS.ABOUT}, 0.65)`});
+      break;
 
       case "Photo":
-        this.setState({backgroundColor: "rgba(164, 201, 159, 0.65)"});
-        break;
+      this.setState({backgroundColor: `rgba(${CATEGORY_COLORS.PHOTO}, 0.65)`});
+      break;
 
       case "App":
-        this.setState({backgroundColor: "rgba(247, 240, 165, 0.65)"});
-        break;
+      this.setState({backgroundColor: `rgba(${CATEGORY_COLORS.APP}, 0.65)`});
+      break;
 
       default:
-        this.setState({backgroundColor: "rgba(1, 1, 1, 0.65)"});
-        break;
+      this.setState({backgroundColor: `rgba(${CATEGORY_COLORS.DEFAULT}, 0.65)`});
+      break;
     }
   }
 
