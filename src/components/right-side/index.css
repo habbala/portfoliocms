@@ -19,6 +19,13 @@
   justify-content: center;
 }
 
+
+@media only screen and (max-width: 800px){
+  .category-label-container{
+    font-size: 0.5em;
+  }
+}
+
 .category-container{
   flex: 1;
   display: flex;
