@@ -1,0 +1,7 @@
+.list-container{
+    overflow-y: scroll;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5vh;
+}

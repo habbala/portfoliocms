@@ -1,9 +1,10 @@
 import {SET_POSTS, SET_POST, SET_BACKGROUND} from '../constants/action-types.js';
+import {CATEGORY_COLORS} from '../constants/colors.js';
 
 const initialState = {
   posts: [],
   post: '',
-  backgroundColor: "rgba(248, 6, 6, 0.5)",
+  backgroundColor: `rgba(${CATEGORY_COLORS.DEFAULT}, 0.0)`,
 };
 
 const rootReducer = (state = initialState, action) => {
